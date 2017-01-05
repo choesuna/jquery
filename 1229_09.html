@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<!-- <script type="text/javascript" src="js/select1227.js"></script> -->
+	<title>SiteName|PageName</title>
+
+	<style type="text/css">
+		*{margin:0; padding:0;}
+		li{
+			list-style:none;
+		}
+		a{
+			text-decoration:none; 
+			color:#333;
+		}
+		body{
+			font:13px "맑은고딕", Malgun Gothic, sans-serif;
+			color:#333;
+		}
+		.selectBox{
+			/* margin:50px 0 0 50px; */
+			
+			border:1px solid #000;
+			display:inline-block;
+			position:relative;
+		}
+		.selectBox span{
+			
+			display:inline-block;
+			padding-right:2px;
+			border:1px solid #ccc;
+		}
+		.selectBox button{
+			/* width:100px; */
+			padding:0 40px 0 10px;
+			height:25px;
+			line-height:18px;
+			background:#FFF url(images/bg_select.png) right 1px no-repeat;
+			border:0 none;
+		}
+		button:hover{
+			cursor:pointer;
+		}
+		.selectBox ul{
+			z-index:10;
+			display:none;
+			border:1px solid #ccc;
+			box-sizing:border-box;
+			position:absolute;
+			top:28px; left:0;
+			width:100%;
+		}
+		.selectBox ul a{
+			display:block;
+			height:25px;
+			line-height:25px;
+			
+		}
+		.selectBox ul a:hover,
+		.selectBox ul a:focus{
+			background-color:#efefef;
+		}
+	</style>
+	<script type="text/javascript">
+		/*
+		* 1. 생성함수 정의
+		* 2. 속성, 메서드 생성
+		* 3. 객체 생성
+		* ** Model View Controller
+		*/
+		function InitSelect(objName, idx){//객체 생성함수,자바가 클래스 생성할때 첫글자 대문자 따라하는 느낌
+			this.sel_c = objName;//속성을 만든 것
+			//this.bindEvent = function(){}//객체 만들때 마다 메소드가 생성되니까 메모리 낭비, 프로토 타입으로 작성 공유할수 있게
+			this.idx = idx;
+			this.myWrap = "div[data-select=" + this.sel_c + "]:eq(" + this.idx + ")";
+			this.allSelectWrap = $("div[data-select]");
+			this.bindEvent();
+		}
+		InitSelect.prototype.bindEvent = function(){//이벤트 등록 메서드 
+			//$("div[data-select=sel_1] button")
+			$(document).on("click",this.myWrap + " button", $.proxy(this.selectHandler_1, this));//this가 변한다고??? 개념알기
+			console.log(this.selectHandler_1);
+		
+		}//메소드 등록하는 방법
+		InitSelect.prototype.selectHandler_1 = function(e){
+			var $myThis = $(e.target);
+			//가장 하위요소가 선택된다. ex)a>img가 있으면 img 가 선택, 텍스트는 선택 안된다. 문서객체만 선택 so 태그가 들어 있을 경우 closest를 써서 찾아서 써야 한다. 
+			console.log($(this));
+			var $mySelWrap = $(this.myWrap );
+			var $myUl = $("ul", $mySelWrap);
+			if($myUl.is(":hidden")){//is 는 항상 true or false 값이 나온다.
+				$("ul:visible", this.allSelectWrap).hide();
+				$myUl.show();
+			}else{
+				$myUl.hide();
+			}
+		}
+		$(function(){
+			var sel = [];
+			/*
+			sel[0] = new InitSelect("sel_1");
+			sel[1] = new InitSelect("sel_2");
+			sel[2] = new InitSelect("sel_3");
+			*/
+			/*each() <=메소드*/
+
+			$.each($("div[data-select = sel]"),function(i, o){
+				sel[i] = new InitSelect("sel", i);
+			});
+		
+
+
+		});
+
+	</script>
+</head>
+<body>
+<select name="" id="">
+	<option value="">option1</option>
+	<option value="">option2</option>
+	<option value="">option3</option>
+	<option value="">option4</option>
+</select> <br /><br />
+
+<div class="selectBox" data-select = "sel">
+	<span><button>naver</button></span>
+	<ul>
+		<li><a href="www.naver.com">naver</a></li>
+		<li><a href="www.daum.net">daum</a></li>
+		<li><a href="www.google.com">google</a></li>
+		<li><a href="www.tistory.com">tstory</a></li>
+	</ul>
+	<input type="hidden" name="" />
+</div><br /><br /><br />
+<div class="selectBox" data-select = "sel">
+	<span><button>naver1</button></span>
+	<ul>
+		<li><a href="www.naver.com">naver1</a></li>
+		<li><a href="www.daum.net">daum2</a></li>
+		<li><a href="www.google.com">google3</a></li>
+		<li><a href="www.tistory.com">tstory4</a></li>
+	</ul>
+	<input type="hidden" name="" /><!-- 스팬,li테그에 이벤트 걸면 포커스가 이동 안한다. 절대 걸면 안된다.  -->
+</div>
+<div class="selectBox" data-select = "sel">
+	<span><button>naver2</button></span>
+	<ul>
+		<li><a href="www.naver.com">naver1</a></li>
+		<li><a href="www.daum.net">daum2</a></li>
+		<li><a href="www.google.com">google3</a></li>
+		<li><a href="www.tistory.com">tstory4</a></li>
+	</ul>
+	<input type="hidden" name="" /><!-- 스팬,li테그에 이벤트 걸면 포커스가 이동 안한다. 절대 걸면 안된다.  -->
+</div>
+<div class="selectBox" data-select = "sel">
+	<span><button>naver3</button></span>
+	<ul>
+		<li><a href="www.naver.com">naver1</a></li>
+		<li><a href="www.daum.net">daum2</a></li>
+		<li><a href="www.google.com">google3</a></li>
+		<li><a href="www.tistory.com">tstory4</a></li>
+	</ul>
+	<input type="hidden" name="" /><!-- 스팬,li테그에 이벤트 걸면 포커스가 이동 안한다. 절대 걸면 안된다.  -->
+</div>
+</body>
+</html>

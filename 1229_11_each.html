@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<title>SiteName|PageName</title>
+	<script type="text/javascript">
+	$(function(){
+		/*
+		$.each($(".myList li"), function(i, o){
+			console.log(i);
+			console.log(o);
+			$(o).text("테스트" + (i + 1));
+		});
+		*/
+		$(".myList li").each(function(i, o){
+			console.log(i);
+			console.log(o);
+			$(o).text("같은 결과" + (i + 1));
+		});
+	
+	});
+	</script>
+</head>
+<body>
+	<ul class="myList">
+		<li>리스트</li>
+		<li>리스트</li>
+		<li>리스트</li>
+		<li>리스트</li>
+		<li>리스트</li>
+	</ul> 
+	
+</body>
+</html>

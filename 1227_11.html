@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<!-- <script type="text/javascript" src="js/select1227.js"></script> -->
+	<title>SiteName|PageName</title>
+
+	<style type="text/css">
+		*{margin:0; padding:0;}
+		li{
+			list-style:none;
+		}
+		a{
+			text-decoration:none; 
+			color:#333;
+		}
+		body{
+			font:13px "맑은고딕", Malgun Gothic, sans-serif;
+			color:#333;
+		}
+		.selectBox{
+			/* margin:50px 0 0 50px; */
+			
+			border:1px solid #000;
+			display:inline-block;
+			position:relative;
+		}
+		.selectBox span{
+			
+			display:inline-block;
+			padding-right:2px;
+			border:1px solid #ccc;
+		}
+		.selectBox button{
+			width:100px;
+			padding:0 40px 0 10px;
+			height:25px;
+			line-height:18px;
+			background:#FFF url(images/bg_select.png) right 1px no-repeat;
+			border:0 none;
+		}
+		button:hover{
+			cursor:pointer;
+		}
+		.selectBox ul{
+			z-index:10;
+			display:none;
+			border:1px solid #ccc;
+			box-sizing:border-box;
+			position:absolute;
+			top:28px; left:0;
+			width:100%;
+		}
+		.selectBox ul a{
+			display:block;
+			height:25px;
+			line-height:25px;
+			
+		}
+		.selectBox ul a:hover,
+		.selectBox ul a:focus{
+			background-color:#efefef;
+		}
+	</style>
+	<script type="text/javascript">
+	//객체지향 방식
+	/*
+	*	객체방식
+	*	1.객체 생성함수 정의(첫글자 = 대문자)
+	*	new Date()  => function Date(){}
+	*	
+	*	2. 속성, 메소드(이벤트 등록, 핸들러) 정의 
+	*
+	*/
+	
+	function ObjSelect(obj, obj2){//객체 생성함수는 첫글자 대문자로 약속
+		this.myEl = obj;
+		this.myBtn = obj2;
+		/*
+		this.bindEvent = function(){
+			if(this.myEl == "sel_1"){
+				alert(1);
+			}else{
+				alert(2);
+			}
+		}
+		*/
+		this.bindEvent();
+	}
+
+	/**이벤트 등록메서드**/
+	ObjSelect.prototype.bindEvent = function(){
+		/*
+		if(this.myEl == ".sel_1"){
+			alert(1);
+		}else{
+			alert(2);
+		}
+		*/
+		//alert(3);
+		
+		$(document).on("click", this.myEl + " button", $.proxy(this.selectHandler,this));
+		//띄어쓰기!!
+
+		$(document).on("click", this.myEl + " ul a", $.proxy(this.selectChText,this));
+	}
+	ObjSelect.prototype.selectChText = function(e){
+		//alert(00);
+		e.preventDefault();
+		var $myThis = $(e.target);
+		var $selEl = $(this.myEl);
+		var $selUl = $("ul", $selEl);
+		var $button = $("button", $selEl);
+		var $theText = $myThis.text();
+		$button.text($theText);
+		$selUl.hide();
+		$button.css({"backround-position-y":"2px"});
+	}
+
+	ObjSelect.prototype.selectHandler = function(e){
+				//alert(567); this = 이벤트 대상, 디스 사용 못함.
+				console.log($(this));
+				console.log(this);
+				console.log($(e.target));
+				console.log(this.myEl);
+
+				var $myThis = $(e.target);
+				var $selEl = $(this.myEl);
+				var $button = $("button", $selEl);
+				var $myUl = $selEl.find("ul");
+				if($myUl.css("display") == "none"){
+					$myUl.show();
+					$button.css({"backround-position-y":"-108px"});
+				}else{
+					$myUl.hide();
+					$button.css({"backround-position-y":"2px"});
+				}
+
+	}
+
+	$(function(){
+		s1 = new ObjSelect(".sel_1", "btn1"); //객체 생성
+		s2 = new ObjSelect(".sel_2", "btn2"); //객체 생성
+	});
+	
+	</script>
+</head>
+<body>
+<select name="" id="">
+	<option value="">option1</option>
+	<option value="">option2</option>
+	<option value="">option3</option>
+	<option value="">option4</option>
+</select> <br /><br />
+
+<div class="selectBox sel_1">
+	<span><button>naver</button></span>
+	<ul>
+		<li><a href="www.naver.com">naver</a></li>
+		<li><a href="www.daum.net">daum</a></li>
+		<li><a href="www.google.com">google</a></li>
+		<li><a href="www.tistory.com">tstory</a></li>
+	</ul>
+	<input type="hidden" name="" />
+</div><br /><br /><br />
+<div class="selectBox sel_2">
+	<span><button>naver1</button></span>
+	<ul>
+		<li><a href="www.naver.com">naver1</a></li>
+		<li><a href="www.daum.net">daum2</a></li>
+		<li><a href="www.google.com">google3</a></li>
+		<li><a href="www.tistory.com">tstory4</a></li>
+	</ul>
+	<input type="hidden" name="" /><!-- 스팬,li테그에 이벤트 걸면 포커스가 이동 안한다. 절대 걸면 안된다.  -->
+</div>
+</body>
+</html>

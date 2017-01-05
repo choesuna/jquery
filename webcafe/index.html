@@ -1,0 +1,178 @@
+<? include "inc/top.html"; ?>
+  <title>웹카페</title>
+  <link rel="stylesheet" href="css/main.css" media="all">
+ </head>
+ <body>
+<!-- wrap영역-->
+  <div id="wrap">
+<!--   헤더영역-->
+  <? include "inc/header.html"; ?>
+<!--    //헤더영역-->
+<!--    비주얼영역-->
+    <div id="main_visual">
+      <img src="images/main/main_visual.gif" alt="web standard &amp; accessibility">
+    </div>
+<!--    //비주얼영역-->
+<!--    컨테이너영역-->
+    <div id="container" class="clearFix">
+<!--     main left-->
+      <div id="main_left">
+        <section class="login_wrap">
+         <h3><img src="images/main/h3_login.gif" alt="로그인"></h3>
+          <form action="#" method="post">
+            <fieldset>
+              <legend>회원로그인</legend>
+              <p><label for="user_id"><img src="images/main/title_id.gif" alt="아이디"></label><input type="text" name="user_id" id="user_id" maxlength="12" placeholder="아이디입력"></p>
+              <p><label for="user_pw"><img src="images/main/title_pw.gif" alt="비밀번호"></label><input type="password" name="user_pw" id="user_pw" maxlength="12" placeholder="비밀번호입력"></p>
+              <p><input type="image" src="images/main/btn_login.gif" alt="로그인"></p>
+            </fieldset>
+          </form>
+          <p><a href="member.html">회원가입</a><a href="#">아이디/비밀번호 찾기</a></p>
+        </section>
+        <section class="banner_zone_left">
+          <h3 class="blind">배너목록</h3>
+          <ul>
+            <li><a href="http://validator.kldp.org" target="_blank" title="새창 또는 새탭으로 열기"><img src="images/main/btn_html.gif" alt="마크업 유효성검사"></a></li>
+            <li><a href="http://css-validator.kldp.org/" target="_blank" title="새창 또는 새탭으로 열기"><img src="images/main/btn_css.gif" alt="css 유효성검사"></a></li>
+          </ul>
+        </section>
+        <section class="standard_web">
+          <h3><img src="images/main/h3_standards.gif" alt="웹표준이란?"></h3>
+        <dl>
+          <dt><strong>웹표준이란?</strong></dt>
+          <dd>W3C단체에서 규정한 웹기술 사양에 대한 규칙을 말하며 표준 규격...</dd>
+        </dl>
+        </section>
+      </div>
+<!--      //main left-->
+<!--      main center-->
+      <div id="main_center">
+        <form action="#" method="get">
+          <fieldset>
+            <legend>웹카페 자료검색</legend>
+            <label for="main_sch_keyword"></label>
+            <input type="image" src="images/common/title_search.gif" alt="자료검색">
+            <input type="text" name="main_sch_keyword" id="main_sch_keyword">
+            <input type="image" src="images/common/btn_search.gif" alt="검색">
+          </fieldset>
+        </form>
+        <section class="main_notice_wrap">
+          <h3 class="blind">공지사항 및 자료실 탭메뉴</h3>
+          <h4 class="tab_btn_1"><button class="on">공지사항</button></h4>
+          <div>
+            <ul>
+              <li>
+                <a href="#">공지사항 관련 내용</a>
+                <time datetime="2016-11-02">2016.11.02</time>
+              </li>
+              <li>
+                <a href="#">공지사항 관련 내용</a>
+                <time datetime="2016-11-02">2016.11.02</time>
+              </li>
+              <li>
+                <a href="#">공지사항 관련 내용</a>
+                <time datetime="2016-11-02">2016.11.02</time>
+              </li>
+              <li>
+                <a href="#">공지사항 관련 내용</a>
+                <time datetime="2016-11-02">2016.11.02</time>
+              </li>
+              <li>
+                <a href="#">공지사항 관련 내용</a>
+                <time datetime="2016-11-02">2016.11.02</time>
+              </li>
+            </ul>
+            <p class="btn_more"><a href="#"><img src="images/main/icon_more.gif" alt="공지사항 더보기"></a></p>
+          </div>
+          <h4 class="tab_btn_2"><button>자료실</button></h4>
+          <div>
+            <ul>
+              <li>
+                <a href="#">자료실 관련 내용</a>
+                <time datetime="2016-11-02">2016.11.02</time>
+              </li>
+              <li>
+                <a href="#">자료실 관련 내용</a>
+                <time datetime="2016-11-02">2016.11.02</time>
+              </li>
+              <li>
+                <a href="#">자료실 관련 내용</a>
+                <time datetime="2016-11-02">2016.11.02</time>
+              </li>
+              <li>
+                <a href="#">자료실 관련 내용</a>
+                <time datetime="2016-11-02">2016.11.02</time>
+              </li>
+              <li>
+                <a href="#">자료실 관련 내용</a>
+                <time datetime="2016-11-02">2016.11.02</time>
+              </li>
+            </ul>
+            <p class="btn_more"><a href="#"><img src="images/main/icon_more.gif" alt="자료실 더보기"></a></p>
+          </div>
+        </section>
+        <section class="main_news_wrap clearFix">
+          <h3><img src="images/main/h3_news.gif" alt="새소식"></h3>
+          <p class="btn_more"><a href="#"><img src="images/main/icon_more.gif" alt="새소식 더보기"></a></p>
+          <figure>
+           <img src="images/main/img_112_66.gif" alt="w3c리뉴얼">
+            <figcaption>w3c리뉴얼</figcaption>
+          </figure>
+          <article>
+            <header><h4>w3c사이트가 리뉴얼 되었습니다.</h4>
+            <time datetime="2016-11-02">2011.11.02</time></header>
+            <p>디자인 및 다양한 뷰 환경을 고려하여 구성되어있으며 기존보다 최신정보 및 개발자를 위한 기술가이드도 찾기 쉽...</p>
+            <p class="btn_more"><a href="#"><img src="images/main/icon_more.gif" alt="새뉴스 더보기"></a></p>
+          </article>
+          </section>
+      </div>
+<!--      //main center-->
+<!--     main right-->
+      <div id="main_right">
+        <div id="event_wrap">
+          <section>
+            <h3><img src="images/main/h3_event.gif" alt="신규이벤트"></h3>
+          <figure>
+          <img src="images/main/event_img_1.gif" alt="이벤트1">
+          <figcaption>오픈기념 이벤트 준비중!</figcaption></figure>
+          <p class="controls"> 
+          <button>이전</button>
+          <button>다음</button>
+          </p>
+          </section>
+          <section>
+            <h3><img src="images/main/h3_relation.gif" alt="관련사이트"></h3>
+            <p>
+              <select name="rel_site" id="rel_site" title="관련사이트를 선택하세요">
+                <option value="http://www.naver.com">제우미디어</option>
+                <option value="http://www.google.com">구글</option>
+                <option value="http://www.daum.net">다음</option>
+              </select>
+              <input type="image" src="images/main/btn_go.gif" alt="관련사이트 이동">
+            </p>
+          </section>
+        </div>
+        <section class="fav_wrap">
+            <h3><img src="images/main/h3_favorite.gif" alt="인기사이트"></h3>
+            <ol>
+              <li><a href="#">W3C</a><img src="images/main/icon_up.gif" alt="상승"></li>
+              <li><a href="#">CSS ZEN GARDEN</a><img src="images/main/icon_down.gif." alt="하락"></li>
+              <li><a href="#">WEB STANDARADS</a><img src="images/main/icon_stop.gif" alt="보합"></li>
+              <li><a href="#">웹접근성 연구소</a><img src="images/main/icon_up.gif" alt="상승"></li>
+            </ol>
+            <p class="btn_more"><a href="#"><img src="images/main/icon_more.gif" alt="인기사이트 더보기"></a></p>
+          </section>
+      </div>
+<!--    //main right-->
+    </div>
+<!--    //컨테이너영역-->
+<!--    슬로건영역-->
+    <? include"inc/slogan.html"; ?>
+<!--  //슬로건영역-->
+  </div>
+<!--  //wrap영역-->
+<!-- 푸터영역-->
+  <? include "inc/footer.html"; ?>
+<!--  //푸터영역-->
+ </body>
+</html>

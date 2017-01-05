@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<title>SiteName|PageName</title>
+	<script type="text/javascript">
+		$(function(){
+			$(".btn1").hover(
+				function(){ 
+					$(this).text("닫힘");
+				},
+				function(){
+					$(this).text("열림");
+				}
+			);
+			var btn2 = $(".btn2");
+			var box1 = $(".box1");
+			btn2.on("click",function(){
+				//box1.hide();
+				//console.log(box1.css("display"));
+				var s = box1.css("display");
+				if(s == "block"){
+					//box1.hide();
+					/*
+					box1.slideUp(9000, function(){
+						btn2.text("펼침");
+					});// 콜백함수가 실행된다. 
+					*/
+					box1.fadeOut(2000, function(){
+						btn2.text("펼침");
+					});
+				}else{
+					//box1.show();
+					/*
+					box1.slideDown("slow", function(){
+						btn2.text("닫힘");
+					});	
+					*/
+					box1.fadeIn(1000, function(){
+						btn2.text("닫힘");
+					});
+				}
+			});
+			var btn3 = $(".btn3");
+			var box2 = $(".box2");
+			btn3.on("click",function(){
+				var a = $(this);
+				box2.stop().slideToggle(1000, function(){
+					/*
+					if(btn3.text()== "닫힘"){
+						a.text("펼침"); ///중요함 !!
+					}else{
+						btn3.text("닫힘");
+					}
+					*/
+					/*
+					if($(this).css("display")=="none"){
+						a.text("펼침"); ///중요함 !!
+					}else{
+						btn3.text("닫힘");
+					}
+					*/
+				});
+			});
+			var btn4 = $(".btn4");
+			var box3 = $(".box3");
+			btn4.on("click", function(){
+				box3.fadeTo(1000, 0.0);
+			});
+		});
+
+	
+	</script>
+	<style type="text/css">
+		.btn1{width:300px; height:100px;font-size:80px;color:#e8177a;}
+		body{overflow-y:scroll;}
+	</style>
+</head>
+<body>
+	<p><button class="btn1">열림</button></p>
+	<div>
+		<button class="btn2" >닫힘</button>
+		<div class="box1">
+			프로토타입, 스토리보드, 프로토 타입, 스토리 보드 
+			뉴욕 최상류층의 생활상을 다룬 신간 '파크애비뉴의 영장류'
+
+			그가 맨해튼에 사는 최상류층의 생활상을 그린 책 '파크애비뉴의 영장류'가 최근 국내에 출간됐다. <br />
+
+			저자는 맨해튼의 아랫동네에 해당하는 다운타운에서 살다가 자녀 교육을 위해 파크애비뉴 70번대 가(街)로 이사를 했다.
+
+			저자가 날씨 좋은 어느 날 바나나와 우유가 든 비닐봉지를 들고 길
+
+
+
+		</div>
+		<p>fadeOut:opacity 값으로 숨기는 것</p>
+	</div>
+	<div>
+		<button class="btn3" >닫힘</button>
+		<div class="box2">
+			프로토타입, 스토리보드, 프로토 타입, 스토리 보드 
+			뉴욕 최상류층의 생활상을 다룬 신간 '파크애비뉴의 영장류'
+
+			그가 맨해튼에 사는 최상류층의 생활상을 그린 책 '파크애비뉴의 영장류'가 최근 국내에 출간됐다. <br />
+
+			저자는 맨해튼의 아랫동네에 해당하는 다운타운에서 살다가 자녀 교육을 위해 파크애비뉴 70번대 가(街)로 이사를 했다.
+
+
+
+			저자가 날씨 좋은 어느 날 바나나와 우유가 든 비닐봉지를 들고 길을 걷던 중 50대 중반으로 추정되는 아줌마와 부닥쳤다. <br />
+
+			그 여성은 자신의 명품 가방으로 저자 왼팔을 치고 가면서 저자 면전에 비웃음을 날렸다. 
+
+
+
+		</div>
+		<p>.stop():어떻게 보면 clear interval이다. </p>
+	</div>
+	<div>
+		<button class="btn4" >닫힘</button>
+		<div class="box3">
+			프로토타입, 스토리보드, 프로토 타입, 스토리 보드 
+			뉴욕 최상류층의 생활상을 다룬 신간 '파크애비뉴의 영장류'
+
+			그가 맨해튼에 사는 최상류층의 생활상을 그린 책 '파크애비뉴의 영장류'가 최근 국내에 출간됐다. <br />
+
+			저자는 맨해튼의 아랫동네에 해당하는 다운타운에서 살다가 자녀 교육을 위해 파크애비뉴 70번대 가(街)로 이사를 했다.
+
+
+
+			저자가 날씨 좋은 어느 날 바나나와 우유가 든 비닐봉지를 들고 길을 걷던 중 50대 중반으로 추정되는 아줌마와 부닥쳤다. <br />
+
+			그 여성은 자신의 명품 가방으로 저자 왼팔을 치고 가면서 저자 면전에 비웃음을 날렸다. 
+
+
+
+		</div>
+		<p>.stop():어떻게 보면 clear interval이다. </p>
+	</div>
+</body>
+</html>

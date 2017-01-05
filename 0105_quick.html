@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript" src="http://choesunaw.dothome.co.kr/common/ui.js"></script>
+	<title>SiteName|PageName</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+			box-sizing:border-box;
+		}
+		li{list-style:none;}
+		a{
+			color:#222; 
+			text-decoration:none;
+		}
+		#wrap{
+			position:relative;
+			width:900px;
+			height:10000px;
+			margin:0 auto;
+			padding-top:80px; /* 왜??? */
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcecfc+0,fba6e1+43,fd89d7+70,fd89d7+76,ff1ebb+100 */
+background: #fcecfc; /* Old browsers */
+background: -moz-linear-gradient(top,  #fcecfc 0%, #fba6e1 43%, #fd89d7 70%, #fd89d7 76%, #ff1ebb 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #fcecfc 0%,#fba6e1 43%,#fd89d7 70%,#fd89d7 76%,#ff1ebb 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #fcecfc 0%,#fba6e1 43%,#fd89d7 70%,#fd89d7 76%,#ff1ebb 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcecfc', endColorstr='#ff1ebb',GradientType=0 ); /* IE6-9 */
+
+		}
+		.quick_menu{
+			position:absolute;
+			right:-82px;
+			top:50px;
+			width:80px;
+			height:200px;
+			background-color:yellow;
+		}
+		#gnbWrap{
+			position:absolute;
+			left:0;
+			top:0;
+			width:100%;
+		}
+		#gnbWrap li{width:25%;float:left;
+			border:1px solid #000;
+		}
+		#gnbWrap li a{
+			display:block;
+			height:40px;
+			line-height:40px;
+			background-color:#FFF;
+			text-align:center;
+
+		}
+		#gnbWrap li a:hover, #gnbWrap li a:focus, #gnbWrap li a.on{
+			color:#fff;
+			background-color:red;
+		}
+	
+		section{
+			min-height:1000px;
+			background-color:#99ffff;
+			border:1px solid #000;
+		}
+		.sec_2{
+		background-color:#6666ff;
+		}
+		.sec_3{
+		background-color:#009900;
+		}
+		.sec_4{
+		background-color:#ff6633;
+		}
+
+	</style>
+</head>
+<body>
+<div id="wrap">
+	<div class="quick_menu">
+		<p>퀵메뉴</p>
+	</div>
+	<nav id="gnbWrap">
+		<ul>
+			<li><a href="#" class="on">제목-1</a></li>
+			<li><a href="#">제목-2</a></li>
+			<li><a href="#">제목-3</a></li>
+			<li><a href="#">제목-4</a></li>
+		</ul>
+	</nav>
+	<section class="sec_1">
+		<h1>제목-1</h1>
+	</section>
+	<section class="sec_2">
+		<h1>제목-2</h1>
+	</section>
+	<section class="sec_3">
+		<h1>제목-3</h1>
+	</section>
+	<section class="sec_4">
+		<h1>제목-4 offset()상단에서부터의 거리값 구할 때 쓰는 메소드</h1>
+	</section>
+</div>
+</body>
+</html>

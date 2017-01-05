@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>SiteName|PageName</title>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		.box1,.box2,.box3{
+			width:200px;
+			height:200px;
+			border:1px solid #000;
+		}
+	</style>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			/*
+			$(document).on("click",".btn", function(){
+				$(this).parent().css({"background-color":"yellow"});
+				console.log($(this));
+			});
+			*/
+			$.fn.bgChg = function(opt){
+				console.log(opt);
+				$.each($(this),function(i,o){
+					$(o).on("click", function(){
+
+						$(this).parent().css({"background-color":opt.c});
+					});
+				});
+			
+			}
+			$(".btn").bgChg({c:"blue"});
+			$(".btn4").bgChg({c: "orange"});
+
+		});
+	
+	</script>
+</head>
+<body>
+	<div class="box1"><button class="btn">button1</button></div>
+	<div class="box2"><button class="btn">button2</button></div>
+	<div class="box3"><button class="btn">button3</button></div>
+	<div class="box3"><button class="btn4">button4</button></div>
+</body>
+</html>

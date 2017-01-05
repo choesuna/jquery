@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+ <meta http-equiv="X-UA-compatible" content="ie=edge">
+  <script type="text/javascript" src="js/html5shiv.js"></script>
+  <script type="text/javascript" src="http://dailynuts.dothome.co.kr/trade/common.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+  <script type="text/javascript" src="http://choesunaw.dothome.co.kr/common/ui.js"></script>
+  <link rel="stylesheet" href="css/common.css" media="all">
+  <link rel="shortcut icon" type="image/x-icon" href="images/common/favicon2.ico">
+  <script type="text/javascript">
+  /*GNB*/
+    
+    function gnbInit() {
+      var gnb = document.querySelector("#gnb");
+      var gnbArr_a = document.querySelectorAll("#gnb > ul > li >a");
+      var openSub = null;
+      var activeImg = null;
+      function mvGnb (ev) {
+        //console.log(ev);
+        var mySrc = ev.srcElement;
+        var myThis = mySrc.parentNode;
+        
+        var myUl = nextElement(myThis);
+        if(openSub) {
+          openSub.style.display = "none";
+        }
+        
+        if (myUl) {
+          myUl.style.display = "block";
+          openSub = myUl;
+          
+        }
+        if(activeImg) {//이미지비활성화
+          imgSrc = activeImg.getAttribute("src");
+          newSrc = imgSrc.replace("_ov.gif", ".gif");
+          activeImg.setAttribute("src", newSrc);
+        }
+        //이미지활성화
+        var imgSrc = mySrc.getAttribute("src");
+        var newSrc = imgSrc.replace(".gif", "_ov.gif");
+        mySrc.setAttribute("src", newSrc);
+        activeImg = mySrc;
+      }
+      
+      for (var i=0;i<gnbArr_a.length;i++) {
+        addEvent(gnbArr_a[i], "mouseover", mvGnb);
+        //1216다시
+//        (function () {
+//          var k=i;
+//          function mvGnb2() {
+//            var arrA = document.querySelectorAll("#gnb > ul > li >a");
+//            arrA[k].mouseover(); //focus시 mouseover 강제
+//          }
+//          addEvent(gnbArr_a[i], "mouseover", mvGnb2);
+//        }());
+      }
+      function resetGnb () {
+        //이미지비활성화 
+        if(activeImg) {
+          var imgSrc = activeImg.getAttribute("src");
+          var newSrc = imgSrc.replace("_ov.gif", ".gif");
+          activeImg.setAttribute("src", newSrc);
+        }
+        //서브이미지숨기기
+        if(openSub) {
+          openSub.style.display = "none";
+        }
+      }
+      addEvent(gnb,"mouseleave", resetGnb); //영역겹쳐야
+    }
+    addEvent(window,"load",gnbInit);
+  </script>

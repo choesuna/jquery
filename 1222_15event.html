@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+	
+	<script type="text/javascript">
+		$(function(){
+			var k = function(){
+				console.log(k);
+			}
+			//$(".btn1").click(k);
+			//$("btn1").mouseover(k);
+			//$("btn1").on("mouseover focus", k );
+			//$(document).on("mouseover focus",".btn1" ,k );//d이벤트 명과 선택자를 인자값으로 넣어줌 !!!
+			//var o = $("p:first").clone();//하위요소까지 포함
+			//$(".box1").append(o);//이벤트가 이미 등록되고 나서 니까 안된다.
+			//선택자를 document객채로 바꾼다. 선택자를 이벤트 와   .. 사이에 둔다. 
+
+			/* $(document).on("dblclick", ".btn2", function(){
+				console.log(1);
+			}); */
+			/*$(document).on({
+				"dblclick":function(){
+					console.log(1);
+				},
+				"mouseover focus":function(){
+					console.log(2);
+				}
+			},
+			
+			".btn2"); */
+			var chkBox = function(){
+				//console.log(56);
+				var m = $(".box2 table").find(":checkbox");
+				if($(this).prop("checked")){
+					m.prop("checked", true);
+				}else{
+					m.prop("checked", false);
+				}
+			}
+			$("#sel_all").on("click", chkBox);
+
+
+
+		});
+	
+	
+	</script>
+	<title>SiteName|PageName</title>
+</head>
+<body>
+<div class="box1">
+	<p><button class="btn1">버튼1</button></p>
+	<p><button class="btn2">버튼2</button></p>
+	<p><button class="btn1">버튼1</button></p>
+</div>
+<div class="box2">
+	<p><input type="checkbox" name="sel_all" id="sel_all" /></p>
+	<table border="1">
+		<tr>
+			<td><input type="checkbox" name="" id="" /></td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" name="" id="" /></td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" name="" id="" /></td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" name="" id="" /></td>
+			<td>4</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" name="" id="" /></td>
+			<td>5</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" name="" id="" /></td>
+			<td>6</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" name="" id="" /></td>
+			<td>7</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" name="" id="" /></td>
+			<td>8</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" name="" id="" /></td>
+			<td>9</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" name="" id="" /></td>
+			<td>10</td>
+		</tr>
+	</table>
+</div>
+</body>
+</html>

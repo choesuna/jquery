@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko" >
+<!-- <html lang="ko" class=""> -->
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<title>SiteName|PageName</title>
+	<script type="text/javascript">
+		var i = 0;
+		$(window).on("resize",function(){
+			//온 메소드, 인자값두개 
+			//console.log(++i);// 변수 꼭 쓰기!!!!
+			var b = $("body");//읽어오기 전에 먼저 실행되니까 밖에다 쓸수 없다.
+			var w = $(window).width(); //바디엔 마진 값
+			if(w >= 1024){
+				b.attr("class", "");//전부다 지울 때,
+				b.addClass("pc");	
+			}else if(w < 1024 && w >= 480){
+				b.attr("class", "");//전부다 지울 때,
+				b.addClass("tablet");
+			}else{
+				b.attr("class", "");//전부다 지울 때,
+				b.addClass("mobile");
+			}
+		});
+
+		$(function(){
+			$(window).resize();
+			$(document).on("click", ".pc .btn_1", function(){
+					alert("pc");
+			});//새로 생성된 옵젝트 설정시. 라이브로 새롭게 생성되는 곳에다가 이벤트 걸때 
+			$(document).on("click", ".tablet .btn_2", function(){
+					alert("tablet");
+			});//새로 생성된 옵젝트 설정시. 라이브로 새롭게 생성되는 곳에다가 이벤트 걸때 
+			$(document).on("click", ".mobile .btn_3", function(){
+					alert("mobile");
+			});//새로 생성된 옵젝트 설정시. 라이브로 새롭게 생성되는 곳에다가 이벤트 걸때 
+		});//문서 다 읽어 오고 나서 실행, 문서를 최초로 열 때 다시 실행된다.
+	</script>
+	<style type="text/css">
+		.pc{background-color:blue;}
+		.tablet{background-color:yellow;}
+		.mobile{background-color:aqua;}
+		.ref{position:absolute; left:-9999px;}
+	</style>
+</head>
+<!-- 1024~ : pc 
+480~1024: tablet
+~480px :mobile -->
+<body class="pc">
+	<button class="btn_1">pc</button>
+	<button class="btn_2">tablet</button>
+	<button class="btn_3">mobile</button>
+	
+	
+	<div class="ref">
+		<p>resize: pc버전에서만 적용 시키고싶을 경우?</p>
+		<p>클래스 값을 변경할 것이다. </p>
+	</div>
+</body>
+</html>

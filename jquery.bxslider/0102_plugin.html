@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>SiteName|PageName</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript"></script>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		li{list-style:none;}
+		img{max-width:100%; vertical-align:middle; }
+		#wrap{
+			max-width:1000px; 
+			margin:0 auto;
+			overflow:hidden;
+		}
+		.slideWrap{
+			width:80%;
+			float:left;
+			position:relative;
+		}
+		.rightSide{
+			width:20%;
+			float:right;
+			background-color:aqua;
+			min-height:200px;
+		}
+		.slideWrap .bx-pager{
+			position:absolute;
+			z-index:10;
+			bottom:0;
+			left:0;
+			width:100%;
+			text-align:center;
+		}
+		.slideWrap .bx-pager-link{
+			display:inline-block;
+			width:15px;
+			height:15px;
+			text-indent:-9999px;
+			background:url(images/bg_slide.png) 0 0 no-repeat;
+		}
+		.slideWrap .bx-pager-link{
+			background-position:0 -16px;
+			margin:0 4px;
+		}
+		.slideWrap .bx-controls-auto{
+			position:absolute;
+			bottom:0;
+			left:50%;
+			margin-left:58px;
+			z-index:11;
+
+		}
+		.slideWrap .bx-pager-item{
+			display:inline-block;
+		}
+	
+		.slideWrap .bx-start{
+			display:inline-block;
+			width:16px;
+			height:16px;
+			text-indent:-9999px;
+			background:url(images/bg_slide.png) 0 -32px no-repeat;
+
+		}
+		.slideWrap .bx-stop{
+			display:inline-block;
+			width:16px;
+			height:16px;
+			text-indent:-9999px;
+			background:url(images/bg_slide.png) 0 -48px no-repeat;
+
+		}
+		.slideWrap .bx-start.active,.slideWrap .bx-stop.active{
+			display:none; 
+		}
+		.slideWrap .bx-prev, .slideWrap .bx-next{
+			position:absolute;
+			top:50%;
+			margin-top:-19px;
+			display:inline-block;
+			width:37px;
+			height:37px;
+			text-indent:-9999px;
+			background:url(images/bg_slide.png) 0 -64px no-repeat;
+
+		}
+		.slideWrap .bx-next{
+			background-position:0 -105px;
+		}
+		.slideWrap .bx-prev{
+			left:10px;
+		}
+		.slideWrap .bx-next{
+			right:10px;
+		}
+		.slideWrap .bx-prev:hover, .slideWrap .bx-prev:active .slideWrap .bx-next:hover,  .slideWrap .bx-next:hover{
+			background-position-x:-38px;
+			-ms-background-position-x:-38px;
+		}
+	</style>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.5/jquery.bxslider.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".mySlide_1").bxSlider({auto:true, autoControls: true, controls:true, pager:true, speed:100});
+			
+				
+		});
+	
+	</script>
+
+</head> 
+<body>
+	<div id="wrap">
+		<div class="slideWrap">
+			<ul class="mySlide_1">
+				<li><a href="#"><img src="http://place-hold.it/800x200/f00" alt="" /></a></li>
+				<li><a href="#"><img src="http://place-hold.it/800x200/ff0" alt="" /></a></li>
+				<li><a href="#"><img src="http://place-hold.it/800x200/f0f" alt="" /></a></li>
+				<li><a href="#"><img src="http://place-hold.it/800x200/0f0" alt="" /></a></li>
+				<li><a href="#"><img src="http://place-hold.it/800x200/0ff" alt="" /></a></li>
+			</ul>
+		</div>
+		<div class="rightSide">오른쪽 영역</div>
+	</div>
+	
+</body>
+</html>

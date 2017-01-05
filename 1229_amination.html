@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>SiteName|PageName</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<style type="text/css">
+	*{margin:0; padding:0;}
+	.box1{
+		width:50px; 
+		height:50px;
+		background-color:red;
+		position:absolute;
+		left:0 ; top: 0;
+	}
+	</style>
+	<script type="text/javascript">
+	$(function(){
+		$(".box1")
+			//.stop()
+			.delay(3000).animate({"left":"500px"}, 1000, function(){
+				console.log(1)
+			})
+			.animate({"top":"300px","opacity":0.5}, 1000, function(){
+				console.log(2)
+			})
+			.animate({"top":0,"left":0}, 1000 , function(){
+				console.log(3)
+			})
+			.animate({"opacity":0.2}, 1000);
+	
+	});
+	
+	</script>
+</head>
+<body>
+<div class="box1">박스</div>
+
+</body>
+</html>

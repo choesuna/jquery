@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<!-- <script type="text/javascript" src="jquery.bxslider/jqu
+	ery.bxslider.js"></script> -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.5/jquery.bxslider.min.js"></script>
+	<script type="text/javascript" src="comJs/ui.js"></script>
+	<title>SiteName|PageName</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		li{
+			list-style:none;
+		}
+		img{
+			vertical-align:middle;
+			width:100%;
+		}
+		.slideBannerZone{
+			max-width:800px;
+			margin:0 auto;
+			background-color:#ffcccc;
+		}
+		.slideList li{
+			position:relative;
+		}
+		
+		.text{
+			width:50px;
+			height:50px;
+			background-color:black;
+			border:1px solid black;
+			position:absolute;
+			top:0;
+			left:0;
+		}
+	</style>
+	<script type="text/javascript">
+		/*
+		var num = 0;
+		var k ;
+		*/
+
+		$(function(){
+			$(".slideList").playSlide({
+				mobile:{
+					mimSlides:2, 
+					maxSlides:2,
+					slideWidth:150,
+					easing:'ease-in'
+				},
+				tablet:{
+					mimSlides:3, 
+					maxSlides:3,
+					slideWidth:150,
+					easing:'ease-out'
+
+
+				},
+				pc:{
+					mimSlides:5, 
+					maxSlides:5,
+					autoControls:true, 
+					slideWidth:150
+				}
+
+			});
+			$(".slideList_2").playSlide({
+				mobile:{
+					mimSlides:3, 
+					maxSlides:3
+
+				},
+				tablet:{
+					mimSlides:5, 
+					maxSlides:5
+
+
+				},
+				pc:{
+					mimSlides:8, 
+					maxSlides:8
+				}
+
+			});
+			$(".slideList_3").playSlide({
+				mobile:{
+					mimSlides:3, 
+					maxSlides:3,
+					slideMargin:30
+				},
+				tablet:{
+					mimSlides:5, 
+					maxSlides:5,
+					slideMargin:10
+				},
+				pc:{
+					mimSlides:8, 
+					maxSlides:8
+				}
+
+			});
+		});
+	
+	</script>
+</head>
+<body>
+<div class="wrap">
+	<div class="slideBannerZone">
+		<ul class="slideList">
+			<li><a href="#"><img src="http://place-hold.it/100x90/ffffff" alt="image" /></a>
+				<div class="text">
+					<p>text</p>
+				</div>
+			</li>
+			<li><a href="#"><img src="http://place-hold.it/100x90" alt="" title="이미지 캡션"/></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/ff66ff" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/ff33ff" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/6600ff" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/6666ff" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/66ccff" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/33ffff" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/ff66cc" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/663366" alt="" /></a></li>
+		</ul>
+		<button class="btnPrev">이전으로 이동</button>
+		<button class="btnNext">다음으로 이동</button> <br />
+		<button class="btnReload">reload</button><br />
+		<button class="btnDestroy">destroy</button>
+		<!-- trigger -->
+	</div>
+	<div class="slideBannerZone">
+		<ul class="slideList_2">
+			<li><a href="#"><img src="http://place-hold.it/100x90/ffffff" alt="image" /></a>
+				<div class="text">
+					<p>text</p>
+				</div>
+			</li>
+			<li><a href="#"><img src="http://place-hold.it/100x90" alt="" title="이미지 캡션"/></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/ff66ff" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/ff33ff" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/6600ff" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/6666ff" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/66ccff" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/33ffff" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/ff66cc" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/663366" alt="" /></a></li>
+		</ul>
+		<button class="btnPrev">이전으로 이동</button>
+		<button class="btnNext">다음으로 이동</button> <br />
+		<button class="btnReload">reload</button><br />
+		<button class="btnDestroy">destroy</button>
+		<!-- trigger -->
+	</div>
+	<div class="slideBannerZone">
+		<ul class="slideList_3">
+			<li><a href="#"><img src="http://place-hold.it/100x90/ffffff" alt="image" /></a>
+				<div class="text">
+					<p>text</p>
+				</div>
+			</li>
+			<li><a href="#"><img src="http://place-hold.it/150x90" alt="" title="이미지 캡션"/></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/ff66ff" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/ff33ff" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/6600ff" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/6666ff" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/66ccff" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/33ffff" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/ff66cc" alt="" /></a></li>
+			<li><a href="#"><img src="http://place-hold.it/100x90/663366" alt="" /></a></li>
+		</ul>
+		<button class="btnPrev">이전으로 이동</button>
+		<button class="btnNext">다음으로 이동</button> <br />
+		<button class="btnReload">reload</button><br />
+		<button class="btnDestroy">destroy</button>
+		<!-- trigger -->
+	</div>
+</div>
+</body>
+</html>
