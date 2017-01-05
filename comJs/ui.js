@@ -1,4 +1,4 @@
-(function() {//170105
+(function() {//170105 gnb바 하다가 말음
 	/*
 		1. 객체 생성함수를 정의
 		2. 객체 생성
@@ -161,9 +161,106 @@
 			}	
 		});
 	}
+	/**스크롤바 따라가는 퀵메뉴**/
+
+	//2. 스크롤 높이 값 구하기 : 이벤트 등록 ->
+	$.fn.quickMenu = function(opt){//$(this)=퀵메뉴모스드를 적용한 퀵메뉴
+		//.fn:jquery에 등록된것. 퀵메뉴의 옵젝트를쓸 수 있게 해준다.
+		//플러그인을 만든 것이다.
+		var ts = $(this);
+		var i = 0; //작동하는지 보려고
+		$(window).on("scroll", function(){
+			//console.log(screen.height());
+			var myThis = $(this);
+			var scT = myThis.scrollTop() + opt.top;//스크롤 높이 값 구하기
+			ts.stop().animate({top:scT + "px"}, opt.speed);//앞에 쌓인거 버리고 마지막 것만 실행하기 위해 앞에다가 .stop()
+			
+		});
+		//온메소드, 펑션 호출
+	}
+
+	$.fn.autoScrollGnb= function(opt){
+		var th = $(this);
+		var clickH1 = $("section>h1");
+
+		var autoScrollGnbHandler = function(e){
+			e.preventDefault();//클릭했을 때 닷링크#가상링크 안걸리게 하려고
+			var idx = th.index($(this));//클릭한 인덱스
+			clickH1 = $("section>h1").eq(idx);
+			var clickH1_top = clickH1.offset().top - opt.top;
+			//자연스럽게 내려오려면 스크롤바에 에니메이션 적용, 스크롤바가 html 또는 body에 들어 있다. 브라우저 마다 다르다.생성위치가 다름
+			$("html, body").animate({scrollTop:clickH1_top + "px"},opt.speed);//scrollTop:제이쿼리에만 있는 속성 css에는 없다. 
+			console.log(clickH1_top);
+		}
+	
+	
+		var k = true;
+		var i = 0;
+		var gnbChoice = function(){
+			var scTop = $(this).scrollTop();
+			for(var i = clickH1.length-1; i >= 0; i--){
+				var t = clickH1.eq(i).offset().top;
+
+				if(scTop >= t){
+					th.filter(".on").removeClass("on");
+					th.eq(i).addClass("on");
+				}
+			}
+		}
+
+		var activGnbHandler = function(){
+			gnbchoice();
+			/*
+			if(k){//k가 트루니까 최초에 한 번 실행된다.
+				//console.log(++i);
+				
+
+			}
+			k = false; //펄스로 바뀌니까 한번만 k가 실행된다. 
+			*/
+			/*
+			if(scTop >= 3001){
+				th.filter(".on").removeClass("on");//th에.on이 있다면 지워라 .없다 잘 보기
+				th.eq(3).addClass("on");
+			}else if(scTop >= 2001){
+				th.filter(".on").removeClass("on");
+				th.eq(2).addClass("on");
+			}else if(scTop >= 1001){
+				th.filter(".on").removeClass("on");
+				th.eq(1).addClass("on");
+			}else{
+				th.filter(".on").removeClass("on");
+				th.eq(0).addClass("on");
+			}
+			*/
+		}
+		th.on({
+			//"click":function(){}
+			"click": autoScrollGnbHandler	
+		});
+		$(window).on({
+			"scroll":activGnbHandler
+		
+		});
+
+	}
+
 	$(function(){
 		$("#gnb").gnb({name1:".gif", name2:"_ov.gif"}); //이미지 파일명 참조
+		$(".quick_menu").quickMenu({top:300, speed:1500});//이 객체를 opt가 참조하고 있다. 
+		//$(".quick_menu").메소드();
+		$("#gnbWrap").quickMenu({top:0, speed:10});//gnbbar 따라오게 하기 
+		$("#gnbWrap>ul>li>a").autoScrollGnb({top:80,speed:100});
 	});
 
 
 }());
+/*****/
+/*
+*메소드 설명
+*
+*
+*
+*
+*
+*/
