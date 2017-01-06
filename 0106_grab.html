@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>SiteName|PageName</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript">
+		var arr=[0, 100, 200, 300, 400, 500];
+		var m = 0;
+		$.grep(arr, function(d, i){//each문과 비슷하다
+			//console.log("d:"+d);
+			//console.log("i:"+i);
+			if(d >= 400){
+				m = i;
+				console.log(m);
+			}
+		});
+	</script>
+</head>
+<body>
+
+</body>
+</html>

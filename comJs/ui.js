@@ -1,4 +1,4 @@
-(function() {//170105 gnb바 하다가 말음
+(function() {//170105 gnb바 하다가 말음 010609
 	/*
 		1. 객체 생성함수를 정의
 		2. 객체 생성
@@ -193,23 +193,32 @@
 			console.log(clickH1_top);
 		}
 	
-	
+		//var arr = [0, 1001, 2001, 3001];
+		
+		var arr = [];
+		$.each(clickH1, function(){
+			var clickH1_top = $(this).offset().top - opt.top;
+			arr.push(clickH1_top);//arr에 .push로 탑값을 넣음
+		});
+		
+
+
+		var m = 0;
+		var gnbChoice = function(){
+			var scT = $(window).scrollTop();
+			$.grep(arr, function(d, idx){
+				if(d <= scT){
+					m = idx;
+				}
+			});
+			th.filter(".on").removeClass("on");
+			th.eq(m).addClass("on");
+
+		}
 		var k = true;
 		var i = 0;
-		var gnbChoice = function(){
-			var scTop = $(this).scrollTop();
-			for(var i = clickH1.length-1; i >= 0; i--){
-				var t = clickH1.eq(i).offset().top;
-
-				if(scTop >= t){
-					th.filter(".on").removeClass("on");
-					th.eq(i).addClass("on");
-				}
-			}
-		}
-
 		var activGnbHandler = function(){
-			gnbchoice();
+			gnbChoice();
 			/*
 			if(k){//k가 트루니까 최초에 한 번 실행된다.
 				//console.log(++i);
@@ -250,7 +259,7 @@
 		$(".quick_menu").quickMenu({top:300, speed:1500});//이 객체를 opt가 참조하고 있다. 
 		//$(".quick_menu").메소드();
 		$("#gnbWrap").quickMenu({top:0, speed:10});//gnbbar 따라오게 하기 
-		$("#gnbWrap>ul>li>a").autoScrollGnb({top:80,speed:100});
+		$("#gnbWrap>ul>li>a").autoScrollGnb({top:50,speed:100});
 	});
 
 
