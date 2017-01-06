@@ -8,6 +8,26 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 	<script type="text/javascript" src="comJs/ui.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			TweenMax.from(".box_1", 4, {scale:0.5, opacity:0.5, x:500, ease:Back.easeOut, delay:1})
+			$(window).on("scroll", function(){
+				var sct = $(this).scrollTop();
+			var box2 = $(".box_2");
+			var box2_top = box2.offset().top - 280;
+				if(sct >= box2_top){
+					TweenMax.staggerTo(".box_2", 0.7, {scale:0.5, opacity:0.5, x:-2000, ease:Back.easeOut, delay:0.2}, 0.5);
+				
+				}else{
+					TweenMax.staggerTo(".box_2", 0.7, {scale:0.5, opacity:0.5, x:2000, ease:Back.easeOut, delay:0.2}, 0.5);
+				}
+			});
+			
+
+		
+		});
+	</script>
 	<title>SiteName|PageName</title>
 	<style type="text/css">
 		*{
@@ -81,6 +101,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcecfc', end
 		.sec_4{
 		background-color:#0000ff;
 		}
+		.box_1{width:50px;height:50px;background-color:green;}
+		.box_2{width:500px;background-color:yellow;margin-left:2000px;}
 
 	</style>
 </head>
@@ -100,9 +122,46 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcecfc', end
 	</nav>
 	<section class="sec_1">
 		<h1>제목-1</h1>
+		<div class="box_1">
+			내용1
+		</div>
+		
 	</section>
 	<section class="sec_2">
 		<h1>제목-2</h1>
+		<div class="box_2">
+			<p>
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+							
+			</p>
+		</div>
+		<div class="box_2">
+			<p>
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+							
+			</p>
+		</div>
+		<div class="box_2">
+			<p>
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+							
+			</p>
+		</div>
 	</section>
 	<section class="sec_3">
 		<h1>제목-3</h1>
