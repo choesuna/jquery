@@ -1,4 +1,4 @@
-(function() {// 0108
+(function() {// 0109:정리전
 	/*
 		1. 객체 생성함수를 정의
 		2. 객체 생성
@@ -21,7 +21,7 @@
 	TabFnc.prototype.tabEventHandler = function(e){
 		e.preventDefault();
 		var $myImg = $(e.target);
-		console.log($myImg)
+		//console.log($myImg)
 		var $myThis = $myImg.closest("a");
 		var $myDiv = $myThis.parent().next();
 		var $visibleDiv = $(this.thisTab + " div:visible");
@@ -137,7 +137,7 @@
 			//console.log(aOfGnb);
 			aOfGnb.next().show(); //lnb를 보여라
 			var ovImg = $("img", aOfGnb).attr("src").replace(opt.name1, opt.name2);
-			console.log(ovImg);
+			//console.log(ovImg);
 			$("img", aOfGnb).attr("src", ovImg)
 			activeA = aOfGnb;//한번 더 옮겨 줘야 한다. 오류남
 		}
@@ -178,17 +178,13 @@
 		});
 		//온메소드, 펑션 호출
 	}
-<<<<<<< HEAD
-	
 
 	/*
 	*@ $.fn.autoScrollGnb : 클릭한 곳으로 이동하는 메서드
 	*@ opt{option}:{top:50 //상단간격, speed:800//속도}
 	*@ $("선택자").autoScrollGnb({top:50,speed:100}); //이렇게 적음 된다.
 	*/
-=======
 	/***선택영역으로 이동***/
->>>>>>> 9e9585972a2d1441a4f311d45b10b9e84229d988
 	$.fn.autoScrollGnb= function(opt){
 		var th = $(this);//gnb의 a
 		var showH1 = $("section>h1");//이동할 선택자
@@ -229,6 +225,45 @@
 		});
 
 	}
+	
+	
+	$.fn.motionFnc = function(){//플러그인 이름 짓기
+		if(ie_8){return False;}//아이8이면 리튼 펄스해라
+		var th = $(this); //$("*[data-type-motion]")
+		$.each(th, function(i, o){
+			var myObj = $(o);
+			//var myObjOpt = myObj.attr("data-motion-opt");
+			var myObjOpt = JSON.parse(myObj.attr("data-motion-opt"));//객체
+			//console.log(typeof myObjOpt);//객체아님, 문자 / eval을 써서 홑따옴표로 만들거나, 
+			//자바스크립트 정규표현객체
+			var myObjClass ="." + myObj.attr("class");//클래스 값 불러오기
+			var  myObjTop = myObj.offset().top - 500;
+
+			$(myObjClass).css({"margin-left":myObjOpt.dst +"px" });
+			if(myObjOpt.direct == "left"){
+				$(myObjClass).css({"margin-left":-myObjOpt.dst +"px" });
+			}
+			var i = 0;
+			var k = true;
+			$(window).on("scroll", function(){
+				var sct = $(this).scrollTop();
+				var m = -parseInt(myObj.css("margin-left"));//반대로 움직이게 하려고 *-1해도된다. 
+				if(sct >= myObjTop && k){
+					k = !k; //한번만 실행되도록. 실행되면 바로 펄스로 바뀐다.
+					TweenMax.staggerTo( myObjClass, myObjOpt.speed, {x:m}, myObjOpt.interval);
+					//console.log(parseInt(myObj.css("margin-left")));//px지우기
+				}else if(sct < myObjTop && !k){
+					k = !k;//케이가 트루
+					TweenMax.staggerTo( myObjClass, 0.2, {x:-m}, myObjOpt.interval);
+					//console.log(k);
+					
+				}
+			
+			});
+
+		});
+	}                                                                                                                                                                                                                                                                                     
+
 
 	$(function(){
 		$("#gnb").gnb({name1:".gif", name2:"_ov.gif"}); //이미지 파일명 참조
@@ -236,6 +271,7 @@
 		//$(".quick_menu").메소드();
 		$("#gnbWrap").quickMenu({top:0, speed:10});//gnbbar 따라오게 하기 
 		$("#gnbWrap>ul>li>a").autoScrollGnb({top:50,speed:100});//선택한 아티클 영역으로 이동하기
+		$("*[data-type=motion]").motionFnc();
 	});
 
 

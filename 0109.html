@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript" src="comJs/html5shiv.min.js"></script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+	<script type="text/javascript" src="comJs/ui.js"></script>//ui.js에서 트윈맥스 쓰려고 바꿔줌.
+	<script type="text/javascript">
+		var ie_8 = false;//아이8에서 실행되지 말라고
+	</script>
+
+	<!--[if lte IE 8]>
+		<script type="text/javascript">
+			var ie_8 = true;
+		</script>
+	<![endif]-->
+	<script type="text/javascript">
+		
+		$(function(){
+		/*	TweenMax.from(".box_1", 4, {scale:0.5, opacity:0.5, x:500, ease:Back.easeOut, delay:1})
+			$(window).on("scroll", function(){
+				var sct = $(this).scrollTop();
+			var box2 = $(".box_2");
+			var box2_top = box2.offset().top - 280;
+				if(sct >= box2_top){
+					TweenMax.staggerTo(".box_2", 0.7, {scale:0.5, opacity:0.5, x:-2000, ease:Back.easeOut, delay:0.2}, 0.5);
+				
+				}else{
+					TweenMax.staggerTo(".box_2", 0.7, {scale:0.5, opacity:0.5, x:2000, ease:Back.easeOut, delay:0.2}, 0.5);
+				}
+			});
+			
+
+		*/
+		});
+		
+	</script>
+	<title>SiteName|PageName</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+			box-sizing:border-box;
+		}
+		li{list-style:none;}
+		a{
+			color:#222; 
+			text-decoration:none;
+		}
+		html{
+			overflow-x:hidden;
+		}
+		#wrap{
+			position:relative;
+			width:900px;
+			height:10000px;
+			margin:0 auto;
+			padding-top:80px; /* 왜??? */
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcecfc+0,fba6e1+43,fd89d7+70,fd89d7+76,ff1ebb+100 */
+background: #fcecfc; /* Old browsers */
+background: -moz-linear-gradient(top,  #fcecfc 0%, #fba6e1 43%, #fd89d7 70%, #fd89d7 76%, #ff1ebb 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #fcecfc 0%,#fba6e1 43%,#fd89d7 70%,#fd89d7 76%,#ff1ebb 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #fcecfc 0%,#fba6e1 43%,#fd89d7 70%,#fd89d7 76%,#ff1ebb 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcecfc', endColorstr='#ff1ebb',GradientType=0 ); /* IE6-9 */
+
+		}
+		.quick_menu{
+			position:absolute;
+			left:200px;
+			top:50px;
+			width:80px;
+			height:200px;
+			background-color:yellow;
+		}
+		#gnbWrap{
+			position:absolute;
+			left:0;
+			top:0;
+			width:100%;
+		}
+		#gnbWrap li{width:20%;float:left;
+			border:1px solid #000;
+		}
+		#gnbWrap li a{
+			display:block;
+			height:40px;
+			line-height:40px;
+			background-color:#FFF;
+			text-align:center;
+
+		}
+		#gnbWrap li a:hover, #gnbWrap li a:focus, #gnbWrap li a.on{
+			color:#fff;
+			background-color:red;
+		}
+	
+		section{
+			min-height:2000px;
+			background-color:#99ffff;
+			border:1px solid #000;
+
+		}
+		.sec_2{
+		background-color:#6666ff;
+		}
+		.sec_3{
+		background-color:#009900;
+		}
+		.sec_4{
+		background-color:#ff6633;
+		}
+		.sec_4{
+		background-color:#0000ff;
+		}
+		.box_1{width:50px;height:50px;background-color:green;}
+		.box_2, .box_3{width:500px;background-color:yellow;/* margin-left:2000px; */}
+
+	</style>
+</head>
+<body>
+<div id="wrap">
+	<div class="quick_menu">
+		<p>퀵메뉴</p>
+	</div>
+	<nav id="gnbWrap">
+		<ul>
+			<li><a href="#" class="on">제목-1</a></li>
+			<li><a href="#">제목-2</a></li>
+			<li><a href="#">제목-3</a></li>
+			<li><a href="#">제목-4</a></li>
+			<li><a href="#">제목-5</a></li>
+		</ul>
+	</nav>
+	<section class="sec_1">
+		<h1>제목-1</h1>
+		<div class="box_1">
+			내용1
+		</div>
+		
+	</section>
+	<section class="sec_2" >
+		<h1>제목-2</h1>
+		<div class="box_2" data-type="motion" data-motion-opt='{"direct":"right", "speed": 1 , "interval":0.7,"dst":3000}'>
+			<p>
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+							
+			</p>
+		</div>
+		<div class="box_2">
+			<p>
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+							
+			</p>
+		</div>
+		<div class="box_2">
+			<p>
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+							
+				
+							
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+							
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+							
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+							
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+							
+				
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+							
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+							
+			</p>
+		</div>
+	</section>
+	<section class="sec_3" data-type="motion" data-motion-opt='{"direct":"left", "speed": 0.5 , "interval":0.7,"dst":3000}'>
+		<h1>제목-2</h1>
+		<div class="box_2">
+			<p>
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+							
+			</p>
+		</div>
+		<div class="box_2">
+			<p>
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+							
+			</p>
+		</div>
+		<div class="box_2">
+			<p>
+				Merry Christmas~!!
+
+				크라제 버거와 함께 행복한 크리스 마스 보내세요~~^^ 
+				크리스 마스를 맞이해 특별한 시즌 메뉴가 출 시 되었습니다. 지금 각 매장에서 확인해주세요.
+
+				크리스 마스 메뉴 보러가기~! Go Go!!
+							
+			</p>
+		</div>
+	</section>
+	<section class="sec_4">
+		<h1>제목-4 offset()상단에서부터의 거리값 구할 때 쓰는 메소드</h1>
+	</section>
+	<section class="sec_5">
+		<h1>제목-4 offset()상단에서부터의 거리값 구할 때 쓰는 메소드</h1>
+	</section>
+	
+</div>
+</body>
+</html>
