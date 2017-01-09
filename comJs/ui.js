@@ -1,4 +1,4 @@
-(function() {//170105 gnb바 하다가 말음 010609
+(function() {// 0108
 	/*
 		1. 객체 생성함수를 정의
 		2. 객체 생성
@@ -178,6 +178,7 @@
 		});
 		//온메소드, 펑션 호출
 	}
+<<<<<<< HEAD
 	
 
 	/*
@@ -185,77 +186,46 @@
 	*@ opt{option}:{top:50 //상단간격, speed:800//속도}
 	*@ $("선택자").autoScrollGnb({top:50,speed:100}); //이렇게 적음 된다.
 	*/
+=======
+	/***선택영역으로 이동***/
+>>>>>>> 9e9585972a2d1441a4f311d45b10b9e84229d988
 	$.fn.autoScrollGnb= function(opt){
-		var th = $(this);
-		var clickH1 = $("section>h1");
+		var th = $(this);//gnb의 a
+		var showH1 = $("section>h1");//이동할 선택자
 
 		var autoScrollGnbHandler = function(e){
 			e.preventDefault();//클릭했을 때 닷링크#가상링크 안걸리게 하려고
 			var idx = th.index($(this));//클릭한 인덱스
-			clickH1 = $("section>h1").eq(idx);
-			var clickH1_top = clickH1.offset().top - opt.top;
+			showH1 = $("section>h1").eq(idx);
+			var showH1_top = showH1.offset().top - opt.top;
 			//자연스럽게 내려오려면 스크롤바에 에니메이션 적용, 스크롤바가 html 또는 body에 들어 있다. 브라우저 마다 다르다.생성위치가 다름
-			$("html, body").animate({scrollTop:clickH1_top + "px"},opt.speed);//scrollTop:제이쿼리에만 있는 속성 css에는 없다. 
-			console.log(clickH1_top);
+			$("html, body").animate({scrollTop:showH1_top + "px"},opt.speed);//scrollTop:제이쿼리에만 있는 속성 css에는 없다.
 		}
-	
-		//var arr = [0, 1001, 2001, 3001];
-		
-		var arr = [];
-		$.each(clickH1, function(){
-			var clickH1_top = $(this).offset().top - opt.top;
-			arr.push(clickH1_top);//arr에 .push로 탑값을 넣음
+
+		var arr = []; //[31, 2031, 4031, 6031, 8031]
+		$.each(showH1, function(){
+			var showH1_top = $(this).offset().top - opt.top;
+			arr.push(showH1_top);//arr에 .push로 각각의 탑값을 넣음
 		});
-		
-
-
 		var m = 0;
-		var gnbChoice = function(){
+		var activGnbHandler = function(){
 			var scT = $(window).scrollTop();
-			$.grep(arr, function(d, idx){
-				if(d <= scT){
-					m = idx;
+			$.grep(arr, function(d, idx){//h1의 탑값, 인덱스 번호
+				if(d <= scT){//h1의 탑값이 스크롤탑값보다 작아지면 
+					m = idx; //인덱스 값 저장 
 				}
 			});
 			th.filter(".on").removeClass("on");
 			th.eq(m).addClass("on");
-
 		}
-		var k = true;
-		var i = 0;
-		var activGnbHandler = function(){
-			gnbChoice();
-			/*
-			if(k){//k가 트루니까 최초에 한 번 실행된다.
-				//console.log(++i);
-				
 
-			}
-			k = false; //펄스로 바뀌니까 한번만 k가 실행된다. 
-			*/
-			/*
-			if(scTop >= 3001){
-				th.filter(".on").removeClass("on");//th에.on이 있다면 지워라 .없다 잘 보기
-				th.eq(3).addClass("on");
-			}else if(scTop >= 2001){
-				th.filter(".on").removeClass("on");
-				th.eq(2).addClass("on");
-			}else if(scTop >= 1001){
-				th.filter(".on").removeClass("on");
-				th.eq(1).addClass("on");
-			}else{
-				th.filter(".on").removeClass("on");
-				th.eq(0).addClass("on");
-			}
-			*/
-		}
-		th.on({
+		th.on({//gnb의a 에 클릭했을 때 실행할 함수 등록
 			//"click":function(){}
 			"click": autoScrollGnbHandler	
 		});
+
 		$(window).on({
 			"scroll":activGnbHandler
-		
 		});
 
 	}
@@ -265,17 +235,8 @@
 		$(".quick_menu").quickMenu({top:300, speed:1500});//이 객체를 opt가 참조하고 있다. 
 		//$(".quick_menu").메소드();
 		$("#gnbWrap").quickMenu({top:0, speed:10});//gnbbar 따라오게 하기 
-		$("#gnbWrap>ul>li>a").autoScrollGnb({top:50,speed:100});
+		$("#gnbWrap>ul>li>a").autoScrollGnb({top:50,speed:100});//선택한 아티클 영역으로 이동하기
 	});
 
 
 }());
-/*****/
-/*
-*메소드 설명
-*
-*
-*
-*
-*
-*/
