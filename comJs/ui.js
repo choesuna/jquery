@@ -178,7 +178,13 @@
 		});
 		//온메소드, 펑션 호출
 	}
+	
 
+	/*
+	*@ $.fn.autoScrollGnb : 클릭한 곳으로 이동하는 메서드
+	*@ opt{option}:{top:50 //상단간격, speed:800//속도}
+	*@ $("선택자").autoScrollGnb({top:50,speed:100}); //이렇게 적음 된다.
+	*/
 	$.fn.autoScrollGnb= function(opt){
 		var th = $(this);
 		var clickH1 = $("section>h1");
