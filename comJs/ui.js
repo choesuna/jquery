@@ -250,11 +250,11 @@
 				var m = -parseInt(myObj.css("margin-left"));//반대로 움직이게 하려고 *-1해도된다. 
 				if(sct >= myObjTop && k){
 					k = !k; //한번만 실행되도록. 실행되면 바로 펄스로 바뀐다.
-					TweenMax.staggerTo( myObjClass, myObjOpt.speed, {x:m}, myObjOpt.interval);
+					TweenMax.staggerTo( myObjClass, myObjOpt.speed, {left:m}, myObjOpt.interval);
 					//console.log(parseInt(myObj.css("margin-left")));//px지우기
 				}else if(sct < myObjTop && !k){
 					k = !k;//케이가 트루
-					TweenMax.staggerTo( myObjClass, 0.2, {x:-m}, myObjOpt.interval);
+					TweenMax.staggerTo( myObjClass, 0.2, {left:-m}, myObjOpt.interval);
 					//console.log(k);
 					
 				}
@@ -262,16 +262,60 @@
 			});
 
 		});
-	}                                                                                                                                                                                                                                                                                     
+	}             
+	
+	
+	/*반응형 GNB*/                                                                  $.fn.rsGnb = function(opt){
+		var mode = opt.mode;
+		var th = $(this);
 
+		if(mode == "pc"){
+			var selector = "." + mode + " #"+th.attr("id")+">ul>li>a";
+			$(document).on("mouseover focus", ".pc #gnb>ul>li>a",function(){
+				alert(1);
+			});
+		}
+	}               
+	
 
+	/*
+	*@Event:사이즈 감지 이벤트
+	*/ 
+	$(window).on("resize",function(){
+		//온 메소드, 인자값두개 
+
+		var b = $("body");//읽어오기 전에 먼저 실행되니까 밖에다 쓸수 없다.
+		var w = $(window).width(); //바디엔 마진 값
+		if(w >= 1024){
+			b.attr("class", "");//전부다 지울 때,
+			b.addClass("pc");
+			
+		
+		}else if(w < 1024 && w >= 480){
+			b.attr("class", "");//전부다 지울 때,
+			b.addClass("tablet");
+		
+			
+		}else{
+			b.attr("class", "");//전부다 지울 때,
+			b.addClass("mobile");
+			
+		}	
+	});
+
+	                                                                                                                    
+
+		
 	$(function(){
-		$("#gnb").gnb({name1:".gif", name2:"_ov.gif"}); //이미지 파일명 참조
-		$(".quick_menu").quickMenu({top:300, speed:1500});//이 객체를 opt가 참조하고 있다. 
+		//$("#gnb").gnb({name1:".gif", name2:"_ov.gif"}); //이미지 파일명 참조
+		//$(".quick_menu").quickMenu({top:300, speed:1500});//이 객체를 opt가 참조하고 있다. 
 		//$(".quick_menu").메소드();
-		$("#gnbWrap").quickMenu({top:0, speed:10});//gnbbar 따라오게 하기 
-		$("#gnbWrap>ul>li>a").autoScrollGnb({top:50,speed:100});//선택한 아티클 영역으로 이동하기
-		$("*[data-type=motion]").motionFnc();
+		//$("#gnbWrap").quickMenu({top:0, speed:10});//gnbbar 따라오게 하기 
+		//$("#gnbWrap>ul>li>a").autoScrollGnb({top:50,speed:100});//선택한 아티클 영역으로 이동하기
+		//$("*[data-type=motion]").motionFnc();
+		$(window).resize();
+
+		$("#gnb").rsGnb({mode:"pc"});
 	});
 
 

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		.layerPopup{
+			width:300px;
+			height:35px;
+			height:200px;
+			background-color:yellow;
+			position:absolute;
+			top:10px;
+			left:10px;
+			box-shadow:0 5px 10px rgba(0,0,0,0.8);
+			cursor:move;
+		}
+		.layerPopup>p{
+			position:absolute;
+			bottom:0;
+			left:0;
+			width:100%;
+			background-color:#000;
+			text-align:center;
+		
+		}
+		.layerPopup>p a{
+			color:#fff;
+			text-decoration:none;
+		}
+		.btn_2{
+			position:absolute;
+			top:0;
+			right:0;
+
+		}
+	</style>
+	<title>SiteName|PageName</title>
+	<script type="text/javascript">
+		$(function(){
+			 $.datepicker.regional['ko'] = {
+				closeText: '닫기',
+				prevText: '이전달',
+				nextText: '다음달',
+				currentText: '오늘',
+				monthNames: ['1월(JAN)','2월(FEB)','3월(MAR)','4월(APR)','5월(MAY)','6월(JUN)',
+				'7월(JUL)','8월(AUG)','9월(SEP)','10월(OCT)','11월(NOV)','12월(DEC)'],
+				monthNamesShort: ['1월','2월','3월','4월','5월','6월',
+				'7월','8월','9월','10월','11월','12월'],
+				dayNames: ['일','월','화','수','목','금','토'],
+				dayNamesShort: ['일','월','화','수','목','금','토'],
+				dayNamesMin: ['일','월','화','수','목','금','토'],
+				weekHeader: 'Wk',
+				dateFormat: 'yy-mm-dd',
+				firstDay: 0,
+				isRTL: false,
+				showMonthAfterYear: true,
+				yearSuffix: '',
+				showOn: 'both',
+				buttonText: "달력",
+				changeMonth: true,
+				changeYear: true,
+				showButtonPanel: true,
+				yearRange: 'c-1:c+1' //연도범위지정
+			};	
+			$.datepicker.setDefaults($.datepicker.regional['ko']);
+
+
+			var datepicker_default = {
+				showOn: 'both',
+				buttonText: "달력",
+				currentText: "이번달",
+				changeMonth: true,
+				changeYear: true,
+				showButtonPanel: true,
+				yearRange: 'c-1:c+1',
+				showOtherMonths: true,
+				selectOtherMonths: true
+			}
+
+			$(".box1").datepicker(datepicker_default);
+			$("#calendar").datepicker(datepicker_default);
+			$(".layerPopup").draggable();
+
+			var closePopup = function(){
+				var th = $(this);
+				th.closest(".layerPopup").fadeOut("fast");
+			}
+
+			$(document).on("click", ".layerPopup .btn_2", closePopup);
+			
+			var myPopCookie = $.cookie("popup");
+			if(myPopCookie=="closePopup" ){
+				$(".layerPopup").hide();
+			}
+			var closeToday = function(){
+				var today = new Date();
+				//today.setDate(today.getDate() + 1)//날짜 가져와서 하루 더하기 
+				today = today.setHours(today.getHours() + 24*3); //24시간 더하기
+				console.log(today);
+				$.cookie("popup","closePopup",{expires:today});
+				$(".layerPopup .btn_2").trigger("click");
+			}
+			$(document).on("click", ".layerPopup .btn_1", closeToday);
+		
+		});
+	</script>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2">
+			<input type="text" name="calendar" id="calendar" />
+	</div>
+	<div class="layerPopup">
+		<p>
+			<a href="#" class="btn_1">삼일동안 이창 열지 않기</a>
+			<a href="#" class="btn_2">창닫기</a>
+		</p>
+	</div>
+</body>
+</html>
